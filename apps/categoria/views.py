@@ -27,6 +27,7 @@ class CatEdit(UpdateView):
         reverse_lazy('categoria:categoria_listar')
 
 
+
 class CatEliminar(DeleteView):
     model = Categoria
     template_name = "categoria/categoria_delete.html"
