@@ -15,7 +15,7 @@ class CatAgregar(CreateView):
     model = Categoria
     template_name = "categoria/categoria_form.html"
     form_class = CategoriaForm
-    success_url = "listar"
+    success_url = reverse_lazy('categoria:categoria_listar')
 
 
 class CatEdit(UpdateView):
