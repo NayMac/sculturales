@@ -1,0 +1,32 @@
+{% extends 'base/base.html' %}
+{% block content %}
+
+<table class="table table-bordered">
+    <thead>
+    <tr>
+        <td>#</td>
+        <td>Nombre Categoria </td>
+        <td>Acciones</td>
+    </tr>
+
+    </thead>
+
+    <tbody>
+    {% if categorias %}
+    {% for categoria in categorias %}
+    <tr>
+        <td>{{ categoria.id }}</td>
+        <td>{{ categoria.name_categoria }}</td>
+        <td>
+            <a class="btn btn-primary" href="{% url 'categoria:categoria_editar' categoria.id %}">Editar</a>
+            <a class="btn btn-danger" href="{% url 'categoria:categoria_delete' categoria.id %}">Eliminar</a>
+        </td>
+    </tr>
+    {% endfor %}
+    {% else %}
+    <h1>No hay registros</h1>
+    {% endif %}
+    </tbody>
+
+</table>
+{% endblock %}
