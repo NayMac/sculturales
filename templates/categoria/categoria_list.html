@@ -12,14 +12,14 @@
     </thead>
 
     <tbody>
-    {% if categorias %}
-    {% for categoria in categorias %}
+    {% if object_list %}
+    {% for categoria in object_list %}
     <tr>
         <td>{{ categoria.id }}</td>
         <td>{{ categoria.name_categoria }}</td>
         <td>
-            <a class="btn btn-primary" href="{% url 'categoria:categoria_editar' categoria.id %}">Editar</a>
-            <a class="btn btn-danger" href="{% url 'categoria:categoria_delete' categoria.id %}">Eliminar</a>
+            <a class="btn btn-primary" href="{% url 'categoria:editar' categoria.id %}">Editar</a>
+            <a class="btn btn-danger" href="{% url 'categoria:eliminar' categoria.id %}">Eliminar</a>
         </td>
     </tr>
     {% endfor %}

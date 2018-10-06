@@ -1,66 +1,33 @@
-from django.shortcuts import render, redirect
-from django.http import HttpResponse
+# from django.shortcuts import render, redirect
 from apps.categoria.forms import CategoriaForm
-from django.views.generic import ListView, CreateView, UpdateView, DeleteView
+from django.views.generic import ListView, CreateView, UpdateView, DeleteView, TemplateView
 from apps.categoria.models import Categoria
 from django.urls import reverse_lazy
 
 
-class CatList(ListView):
-    model = Categoria
-    template_name = "categoria/categoria_list.html"
+class Index(TemplateView):
+    template_name = 'categoria/index.html'
 
-
-class CatAgregar(CreateView):
+class Agregar(CreateView):
     model = Categoria
     template_name = "categoria/categoria_form.html"
     form_class = CategoriaForm
-    success_url = reverse_lazy('categoria:categoria_listar')
+    success_url = reverse_lazy('categoria:listar')
 
 
-class CatEdit(UpdateView):
+class Editar(UpdateView):
     model = Categoria
     form_class = CategoriaForm
-    template_name = "categoria/categoria_form.html"
-
-    def post(self, request, *args, **kwargs):
-        reverse_lazy('categoria:categoria_listar')
+    template_name = 'categoria/categoria_form.html'
+    success_url = reverse_lazy('categoria:listar')
 
 
-class CatEliminar(DeleteView):
+class Eliminar(DeleteView):
     model = Categoria
     template_name = "categoria/categoria_delete.html"
-    success_url = "listar"
+    success_url = reverse_lazy('categoria:listar')
 
 
-def index(request):
-    return render(request, 'categoria/index.html')
-
-
-def categoria_view(request):
-    if request.method == 'POST':
-        form = CategoriaForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('categoria:index')
-    else:
-        form = CategoriaForm()
-    return render(request, 'categoria/categoria_form.html', {'form': form})
-
-
-def categoria_list(request):
-    categoria = Categoria.objects.all()
-    contexto = {'categorias': categoria}
-    return render(request, 'categoria/categoria_list.html', contexto)
-
-
-def categoria_edit(request, id_categoria):
-    categoria = Categoria.objects.get(id=id_categoria)
-    if request.method == 'GET':
-        form = CategoriaForm(instance=categoria)
-    else:
-        form = CategoriaForm(request.POST, instance=categoria)
-        if form.is_valid():
-            form.save()
-            return redirect(reverse_lazy('categoria/categoria_list.html'))
-    return render(request, 'categoria/categoria_form.html', {'form': form})
+class Listar(ListView):
+    model = Categoria
+    template_name = "categoria/categoria_list.html"

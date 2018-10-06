@@ -5,9 +5,9 @@ from apps.categoria.views import *
 app_name = 'categoria'
 
 urlpatterns = [
-    path('', index, name='index'),
-    path('nuevo/', CatAgregar.as_view(), name='categoria_crear'),
-    path('listar/', CatList.as_view(), name='categoria_listar'),
-    path('editar/<pk>/', CatEdit.as_view(), name='categoria_editar'),
-    path('eliminar/<pk>/', CatEdit.as_view(), name='categoria_delete'),
+    path('', Index.as_view(), name='index'),
+    path('nuevo/', Agregar.as_view(), name='crear'),
+    path('editar/<pk>/', Editar.as_view(), name='editar'),
+    path('eliminar/<pk>/', Eliminar.as_view(), name='eliminar'),
+    path('listar/', Listar.as_view(), name='listar'),
 ]
