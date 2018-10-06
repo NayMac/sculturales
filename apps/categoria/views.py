@@ -10,7 +10,7 @@ class Index(TemplateView):
 
 class Agregar(CreateView):
     model = Categoria
-    template_name = "categoria/categoria_form.html"
+    template_name = 'categoria/categoria_form.html'
     form_class = CategoriaForm
     success_url = reverse_lazy('categoria:listar')
 
@@ -24,10 +24,10 @@ class Editar(UpdateView):
 
 class Eliminar(DeleteView):
     model = Categoria
-    template_name = "categoria/categoria_delete.html"
+    template_name = 'categoria/categoria_delete.html'
     success_url = reverse_lazy('categoria:listar')
 
 
 class Listar(ListView):
     model = Categoria
-    template_name = "categoria/categoria_list.html"
+    template_name = 'categoria/categoria_list.html'
