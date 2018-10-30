@@ -20,6 +20,6 @@ urlpatterns = [
     path('admin/',admin.site.urls),
     path('categoria/', include('apps.categoria.urls'), name='categoria'),
     path('estado/', include('apps.estado.urls'),name='estado'),
-    #path('lugar/',include('apps.lugar.urls'),name='lugar'),
+    path('lugar/',include('apps.lugar.urls'),name='lugar'),
     #path('municipio/',include('apps.municipio.urls'),name='municipio'),
 ]

@@ -6,3 +6,6 @@ from apps.estado.models import Estado
 class Municipio(models.Model):
     name_municipio = models.CharField(max_length=50)
     estado = models.ForeignKey(Estado, null=True, blank=True, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return '{}'.format(self.name_municipio,self.estado)

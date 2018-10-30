@@ -1,6 +1,6 @@
 from django.urls import path
 from apps.lugar.views import *
-app_name = 'estado'
+app_name = 'lugar'
 
 urlpatterns = [
    # url(r'^$', index_estado),
