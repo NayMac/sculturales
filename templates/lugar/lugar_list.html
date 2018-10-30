@@ -1,0 +1,41 @@
+{% extends 'base/base.html' %}
+{% block content %}
+
+<table class="table table-bordered">
+    <thead>
+    <tr>
+        <td>No.</td>
+        <td>Nombre del Lugar </td>
+        <td>Dirección</td>
+        <td>Telefono</td>
+        <td>Categoria</td>
+        <td>Municipio</td>
+
+        <td>Acciones</td>
+    </tr>
+
+    </thead>
+
+    <tbody>
+    {% if object_list %}
+    {% for lugar in object_list %}
+    <tr>
+        <td>{{ lugar.id }}</td>
+        <td>{{ lugar.name_lugar }}</td>
+        <td>{{ lugar.direccion }} </td>
+        <td>{{ lugar.telefono }} </td>
+        <td>{{ lugar.categoria}} </td>
+        <td>{{ lugar.municipio }} </td>
+        <td>
+            <a class="btn btn-primary" href="{% url 'lugar:editar' lugar.id %}">Editar</a>
+            <a class="btn btn-danger" href="{% url 'lugar:eliminar' lugar.id %}">Eliminar</a>
+        </td>
+    </tr>
+    {% endfor %}
+    {% else %}
+    <h1>No hay registros</h1>
+    {% endif %}
+    </tbody>
+
+</table>
+{% endblock %}
