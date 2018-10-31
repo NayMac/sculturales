@@ -1,0 +1,34 @@
+{% extends 'base/base.html' %}
+{% block content %}
+
+<table class="table table-bordered">
+    <thead>
+    <tr>
+        <td>No.</td>
+        <td>Nombre Municipio</td>
+        <td>Nombre  Estado </td>
+        <td>Acciones</td>
+    </tr>
+
+    </thead>
+
+    <tbody>
+    {% if object_list %}
+    {% for municipio in object_list %}
+    <tr>
+        <td>{{ municipio.id }}</td>
+        <td>{{ municipio.name_municipio }}</td>
+        <td>{{ municipio.estado }}</td>
+        <td>
+            <a class="btn btn-primary" href="{% url 'municipio:editar' municipio.id %}">Editar</a>
+            <a class="btn btn-danger" href="{% url 'municipio:eliminar' municipio.id %}">Eliminar</a>
+        </td>
+    </tr>
+    {% endfor %}
+    {% else %}
+    <h1>No hay registros</h1>
+    {% endif %}
+    </tbody>
+
+</table>
+{% endblock %}
