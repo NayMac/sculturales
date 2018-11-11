@@ -8,4 +8,5 @@ urlpatterns = [
     path('editar/<pk>/', Editar.as_view(), name='editar'),
     path('eliminar/<pk>/', Eliminar.as_view(), name='eliminar'),
     path('listar/', Listar.as_view(), name='listar'),
+    path('comentarios/listar/', Comentario.as_view(), name='comentar'),
 ]

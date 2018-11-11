@@ -9,7 +9,7 @@ class MunicipioForm(forms.ModelForm):
             'estado',
         ]
         labels = {
-            'name_municipio': 'Nombre Estado',
+            'name_municipio': 'Municipio',
             'estado':'Estado',
         }
         widgets = {

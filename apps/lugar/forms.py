@@ -1,5 +1,5 @@
 from django import forms
-from apps.lugar.models import Lugar
+from apps.lugar.models import Lugar,Comentario
 
 class LugarForm (forms.ModelForm):
     class Meta:
@@ -12,7 +12,7 @@ class LugarForm (forms.ModelForm):
             'municipio',
         ]
         labels = {
-            'name_lugar': 'Nombre Estado',
+            'name_lugar': 'Nombre del Lugar',
             'direccion': 'Dirección',
             'telefono':'Telefono',
             'categoria':'Categoria',
@@ -25,4 +25,23 @@ class LugarForm (forms.ModelForm):
             'telefono': forms.TextInput(attrs={'class': 'form-control'}),
             'categoria': forms.Select(attrs={'class': 'form-control'}),
             'municipio': forms.Select(attrs={'class': 'form-control'}),
+        }
+
+class ComentarioForm(forms.ModelForm):
+    class Meta:
+        model = Comentario
+        fields = [
+            'name_persona',
+            'comentario',
+            'email',
+        ]
+        labels = {
+            'name_persona':'Nombre(s),Apellido(s)',
+            'comentario':'Comentario',
+            'email':'Correo electronico',
+        }
+        widgets = {
+            'name_persona': forms.TextInput(attrs={'class':'form-control'}),
+            'comentario': forms.TextInput(attrs={'class':'form-control'}),
+            'email': forms.TextInput(attrs={'class':'form-control'}),
         }
