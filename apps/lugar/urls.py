@@ -9,4 +9,5 @@ urlpatterns = [
     path('eliminar/<pk>/', Eliminar.as_view(), name='eliminar'),
     path('listar/', Listar.as_view(), name='listar'),
     path('comentarios/listar/', Comentario.as_view(), name='comentar'),
+    path('comentario/nuevo', ComentarioCreate.as_view(),name="comentarnuevo"),
 ]

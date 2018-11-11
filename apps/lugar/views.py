@@ -3,7 +3,7 @@ from apps.lugar.models import Lugar, Comentario
 from django.views.generic import ListView, CreateView, UpdateView, DeleteView, TemplateView
 from django.urls import reverse_lazy
 from apps.lugar.forms import LugarForm,ComentarioForm
-from django.http import HttpResponse
+from django.http import HttpResponseRedirect
 
 
 # Create your views here.
@@ -60,3 +60,5 @@ def post(self, request, *args,**kwargs):
         comentario.lugar =form2.save()
         comentario.save()
         return HttpResponseRedirect(self.get_success_url())
+    else:
+        return self.render_to_response(self.get_context_data(form=form,form2=form2))
