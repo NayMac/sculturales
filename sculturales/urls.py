@@ -22,4 +22,5 @@ urlpatterns = [
     path('estado/', include('apps.estado.urls'),name='estado'),
     path('lugar/',include('apps.lugar.urls'),name='lugar'),
     path('municipio/',include('apps.municipio.urls'),name='municipio'),
+    path('usuario/',include('apps.usuario.urls'),name='usuario'),
 ]
