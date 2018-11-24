@@ -9,12 +9,7 @@ from django.urls import reverse_lazy
 from apps.usuario.forms import RegistroForm
 from apps.usuario.serializers import UserSerializer
 
-"""class RegistroUsuario(CreateView):
-	model = User
-	template_name = "usuario/registrar.html"
-	form_class = RegistroForm
-	success_url =reverse_lazy ('lugar:listar')
-"""
+
 class RegistroUsuario(CreateView):
     model = User
     template_name = 'usuario/registrar.html'
