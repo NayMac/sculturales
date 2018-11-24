@@ -1,6 +1,7 @@
 from django.contrib.auth.models import User
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, UsernameField
 from django import forms
+from numpy.core.defchararray import strip
 
 class RegistroForm(UserCreationForm):
 
@@ -25,3 +26,17 @@ widgets = {
                 'email': forms.TextInput(attrs={'class': 'form-control'}),
 
             }
+
+class LoginForm(AuthenticationForm):
+	username = UsernameField(widget=forms.TextInput( attrs={
+		'autofocus':True,
+		'class':'for-control',
+		'placeholder':'Codigo'
+
+	}))
+	password = forms.CharField(
+		strip=False,
+		widget=forms.PasswordInput(attrs={
+		'class':'form-control',
+		'placeholder':'Contraseña'
+	}))
