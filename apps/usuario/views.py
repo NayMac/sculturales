@@ -10,6 +10,7 @@ from apps.usuario.serializers import UserSerializer
 from django.http import HttpResponse, HttpResponseRedirect
 import json
 from rest_framework.views import APIView
+from sculturales.settings import client
 
 
 class RegistroUsuario(CreateView):
@@ -24,11 +25,13 @@ class Login(LoginView):
     success_url = reverse_lazy('lugar:listar')
 
     def form_valid(self, form):
-        login(self.request,form.get_user())
+        client.messages.create(body="Se ha iniciado sesión ", from_="+12405341927", to="+523313220573")
+        login(self.request, form.get_user())
         return HttpResponseRedirect(self.success_url)
 
 class Logout(LogoutView):
-    success_url =reverse_lazy('lugar:listar')
+    success_url = reverse_lazy('lugar:listar')
+
     def dispatch(self, request, *args, **kwargs):
         logout(request)
         success_url = self.success_url

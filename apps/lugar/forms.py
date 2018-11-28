@@ -16,7 +16,7 @@ class LugarForm (forms.ModelForm):
             'direccion': 'Dirección',
             'telefono':'Telefono',
             'categoria':'Categoria',
-            'municipio':'Municipio'
+            'municipio':'Municipio',
 
         }
         widgets = {

@@ -25,25 +25,55 @@
 		                  		</div>
 		                  	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 		                    	<ul class="nav navbar-nav">
+
 		                      		<li class="dropdown">
-		                        		<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Categoria <span class="caret"></span></a>
-				                        <ul class="dropdown-menu" role="menu">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Categoria <span class="caret"></span></a>
+		                        		<ul class="dropdown-menu" role="menu">
+                                            <li><a href="{% url 'categoria:listar' %}"> Listar </a> </li>
+                                            <li><a href="{% url 'categoria:crear' %}"> Añadir </a> </li>
 
 				                        </ul>
 		                      		</li>
-			                        <li class="dropdown">
-			                        	<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Estado<span class="caret"></span></a>
-			                        	<ul class="dropdown-menu" role="menu">
-				                          </ul>
-			                        </li>
-		                    	</ul>
+                                </ul>
+
+                                <ul class="nav navbar-nav">
+
+		                      		<li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Lugar<span class="caret"></span></a>
+		                        		<ul class="dropdown-menu" role="menu">
+                                            <li><a href="{% url 'lugar:listar' %}"> Listar </a> </li>
+                                            <li><a href="{% url 'lugar:crear' %}"> Añadir </a> </li>
+
+				                        </ul>
+		                      		</li>
+                                </ul>
+                                <ul class="nav navbar-nav">
+
+		                      		<li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Estado<span class="caret"></span></a>
+		                        		<ul class="dropdown-menu" role="menu">
+                                            <li><a href="{% url 'estado:listar' %}"> Listar </a> </li>
+                                            <li><a href="{% url 'estado:crear' %}"> Añadir </a> </li>
+
+				                        </ul>
+		                      		</li>
+                                </ul>
+                                <ul class="nav navbar-nav">
+		                      		<li class="dropdown">
+                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Municipio<span class="caret"></span></a>
+		                        		<ul class="dropdown-menu" role="menu">
+                                            <li><a href="{% url 'municipio:listar' %}"> Listar </a> </li>
+                                            <li><a href="{% url 'municipio:crear' %}"> Añadir </a> </li>
+
+				                        </ul>
+		                      		</li>
+                                </ul>
 		                    	<ul class="nav navbar-nav navbar-right">
-		                        	<li class="dropdown"><a href="" onclick="pageTracker._link(this.href); return false;">Sitios Culturales</a>
-		                        	</li>
 		                        	<li class="dropdown">
 		                        		<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Opciones<span class="caret"></span></a>
 		                        		<ul class="dropdown-menu" role="menu">
-		                          			<li></li>
+                                            <li> <a href="{% url 'lugar:comentarnuevo' %}"> Comentar</a> </li>
+                                            <li><a href="{% url 'usuario:registrar' %}"> Registrarse</a></li>
 		                        		</ul>
 		                      		</li>
 		                    	</ul>
@@ -65,8 +95,10 @@
 	{% block footer %}
 	{% endblock%}
 </div>
-	<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-	<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
 
 	{% block extrajs %}
 	{% endblock %}

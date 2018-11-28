@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 """
 
 import os
+from twilio.rest import Client
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -128,3 +129,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (os.path.join(BASE_DIR,'static'),)
+
+account_sid = 'AC32aba0abfc5b7bafe7bc7c32bdfa9fb5'
+auth_token = 'c10d80ba437b6cf3e47d654bfd5b26e3'
+client = Client(account_sid, auth_token)

@@ -12,7 +12,6 @@ class Lugar(models.Model):
     categoria = models.ForeignKey(Categoria, null=True, blank=True, on_delete=models.CASCADE)
     municipio = models.ForeignKey(Municipio, null=True, blank=True, on_delete=models.CASCADE)
 
-
 class Comentario(models.Model):
     name_persona = models.CharField(max_length=100)
     comentario = models.CharField(max_length=250)
